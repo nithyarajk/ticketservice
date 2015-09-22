@@ -1,0 +1,25 @@
+
+<div class="container" ng-controller="TicketController as ticket">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<h1>Create Ticket!!</h1>
+				<form  class="form-sigin" method="post" ng-submit="ticket.createTicket()">
+					<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.content" placeholder=".....">
+					<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.priority" placeholder="Priority">
+					<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.comments" placeholder="Comments">
+					<button type="submit" class="btn btn-danger">Create Ticket</button>
+				</form>
+			</div>
+
+			
+		</div>
+		<div class="panel panel-success">
+				<div class="panel-heading">Your Tickets</div>
+				<div class="panel-body" ng-repeat="each in ticket.tickets | reverse">
+					<p>{{ each.content }}</p>
+				</div>
+			</div>
+</div>
+
+
+ 

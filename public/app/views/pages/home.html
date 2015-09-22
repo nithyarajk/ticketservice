@@ -1,0 +1,55 @@
+
+<div class="jumbotron text-center" ng-if="!main.loggedIn">
+	
+	<div>
+		<h1>If you have balls Sign up!</h1>
+	</div>
+
+	<div>
+		<p>Login to write your story</p>
+		<a href="/login" class="btn btn-primary">Login</a>
+	</div>
+</div>
+
+
+
+<div class="row" ng-if="main.loggedIn">
+
+	<div class="col-md-3">
+
+
+	</div>
+
+	<div class="col-md-4" ng-controller="TicketController as ticket">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Create Tickets</div>
+
+				<div class="panel-body">
+				<form ng-submit="ticket.createTicket()">
+				<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.content" placeholder=".....">
+				<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.priority" placeholder="Priority">
+				<input class="form-control input-lg" type="text" ng-model="ticket.ticketData.comments" placeholder="Comments">
+				<button type="submit" class="btn btn-danger">Create Ticket</button>
+				</form>
+				</div>
+			</div>
+
+			<div class="panel panel-success">
+				<div class="panel-heading">Your Tickets</div>
+				<div class="panel-body" ng-repeat="each in ticket.tickets | reverse">
+					<p>{{ each.content }}</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-md-3">
+
+
+	</div>
+
+
+</div>
